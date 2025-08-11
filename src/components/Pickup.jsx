@@ -66,7 +66,7 @@ function Pickup() {
           <ArrowLeft size={20} />
           Back
         </button>
-        <h2>Office Pickup - Receipt Entry</h2>
+        <h2>GLOBALKOM RAVEN</h2>
       </div>
 
       <div className="form-layout">
