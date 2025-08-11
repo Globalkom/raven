@@ -9,7 +9,7 @@ function Delivery() {
   const [employeeName, setEmployeeName] = useState('');
   const [employeeTeam, setEmployeeTeam] = useState('');
   const [items, setItems] = useState([{ id: 1, name: '', quantity: 1 }]);
-  const [showReceipt, setShowReceipt] = useState(true);
+  const showReceipt = true;
   const [errors, setErrors] = useState({});
   const itemRefs = useRef([]);
 
