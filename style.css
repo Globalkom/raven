@@ -1,0 +1,172 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+.no-border {
+  border: none;
+}
+
+.signature-blocks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.signature {
+  text-align: center;
+  width: 30%;
+}
+
+.misa-signature {
+  margin: 0px;
+  width: 200px;
+}
+
+.milos-signature {
+  font-family: "Indie Flower", cursive;
+  font-size: 28px;
+  margin: 0px;
+  color: blue;
+}
+
+.signature:nth-child(1) p:nth-child(4) {
+  margin-top: 0px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.btn {
+  margin: 10px 5px 20px 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media print {
+  body {
+    margin: 20px;
+  }
+
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+.button {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px 8px 16px;
+  gap: 8px;
+  height: 40px;
+  border: none;
+  background: #056bfa27;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.lable {
+  margin-top: 1px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #056dfa;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: #056bfa49;
+}
+
+.container{
+  margin: 20px 50px;
+  display: block;
+  margin: auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+/* Button main page / nav */
+
+.container-main {
+  display: flex;
+  outline: 1px solid lime;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.button-59 {
+  margin: 15px auto;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: block;
+  fill: #000;
+  font-size: 20px;
+  font-weight: 600;
+  /* height: 48px; */
+  justify-content: center;
+  letter-spacing: -.8px;
+  /* line-height: 50px; */
+  width: 220px;
+  outline: 0;
+  padding: 10px 0px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-59:focus {
+  color: #171e29;
+}
+
+.button-59:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.button-59:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 768px) {
+  .button-59 {
+    min-width: 170px;
+  }
+}

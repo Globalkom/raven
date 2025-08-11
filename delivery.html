@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Raven Receipt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Indie+Flower&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="globalkom.jpg" type="image/x-icon">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="no-print">Receipt Entry</h2>
+  <div class="no-print">
+    <label>Receipt No.: <input type="number" id="receiptNumber"></label><br>
+    <label>Employee: <input type="text" id="employeeName"></label><br>
+    <label>Team: <input type="text" id="employeeTeam"></label><br><br>
+    <div id="items">
+      <div class="item">
+        <label>Item Name: <input type="text" class="itemName"></label>
+        <label>Quantity: <input type="number" class="quantity" min="1" value="1"></label>
+      </div>
+    </div>
+    <button class="btn button" onclick="addItem()"><span class="label"><i class="fa-solid fa-plus"></i> Add
+        Item</span></button>
+    <button class="btn button" onclick="generateReceipt()"><span class="label">Generate Receipt <i
+          class="fa-solid fa-gears"></i></span></button>
+  </div>
+  <div class="no-print">
+    <button class="btn button" onclick="window.print()"><span class="label">Download PDF <i
+          class="fa-solid fa-download"></i></span></button>
+  </div>
+  <hr class="no-print">
+  <div id="receiptOutput"></div>
+  </div>
+  <script>
+    function addItem() {
+      const container = document.getElementById('items');
+      const div = document.createElement('div');
+      div.classList.add('item');
+      div.innerHTML = `
+        <label>Item Name: <input type="text" class="itemName"></label>
+        <label>Quantity: <input type="number" class="quantity" min="1" value="1"></label>`;
+      container.appendChild(div);
+    }
+    function generateReceipt() {
+      const receiptNumber = document.getElementById('receiptNumber').value || '___';
+      const employeeName = document.getElementById('employeeName').value || '__________________';
+      const employeeTeam = document.getElementById('employeeTeam').value || '__________________';
+      const today = new Date().toLocaleDateString('sr-RS');
+      const itemNames = document.querySelectorAll('.itemName');
+      const quantities = document.querySelectorAll('.quantity');
+      let rows = '';
+      for (let i = 0; i < 10; i++) {
+        if (i < itemNames.length && itemNames[i].value.trim()) {
+          rows += `<tr><td>${i + 1}</td><td>${itemNames[i].value}</td><td>kom</td><td>${quantities[i].value}</td></tr>`;
+        } else {
+          rows += `<tr><td>${i + 1}</td><td></td><td></td><td></td></tr>`;
+        }
+      }
+      document.getElementById('receiptOutput').innerHTML = `
+        <div>
+          <p style="text-align: right;">Datum ${today} godine</p>
+          <h2>REVERS BR. <u>${receiptNumber}</u></h2>
+          <table style="width:100%; margin-bottom: 10px;">
+            <tr><td class="no-border" style="width:50%;">Potvrđujem da sam od</td><td class="no-border"><b>Društvo za računarsko programiranje konsultantske i s tim povezane delatnosti GLOBALKOM D.O.O. BEOGRAD</b></td></tr>
+            <tr><td class="no-border">primio/la na upotrebu za</td><td class="no-border">Rad od kuće</td></tr>
+          </table>
+          <table style="width:100%;">
+            <tr><th>Redni broj</th><th>Naziv robe</th><th>Jed. Mere</th><th>Količina</th></tr>
+            ${rows}
+          </table>
+          <div class="signature-blocks">
+            <div class="signature">
+              <p>Revers izdao</p><p>Miloš Panić</p><p class="milos-signature">Miloš Panić</p><p>__________________</p>
+            </div>
+            <div class="signature">
+              <p>Odobrio</p><p style="margin:0px">Miša Mitrović</p><p><img src="potpis.png" class="misa-signature"></p>
+            </div>
+            <div class="signature">
+              <p>Robu primio/la</p><p>${employeeName}</p><br><p>__________________</p>
+            </div>
+          </div>
+        </div>`;
+      document.title = `Revers ${receiptNumber} ${employeeName} ${employeeTeam}`;
+    }
+  </script>
+</body>
+
+</html>
+
+<!-- Made by Miloš Panić for Globalkom/LimoLabs | Aug 1st 2025 -->
