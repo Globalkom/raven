@@ -22,7 +22,9 @@
       "Bash(git remote add:*)",
       "Bash(git push:*)",
       "Bash(git commit:*)",
-      "Bash(kill:*)"
+      "Bash(kill:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(gh auth:*)"
     ],
     "deny": []
   }
