@@ -121,6 +121,16 @@ body{
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
+.form-group input.error {
+  border-color: #e74c3c;
+  background: #fff5f5;
+}
+
+.form-group input.error:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
 .items-list.compact {
   margin-bottom: 0.8rem;
 }
@@ -161,6 +171,16 @@ body{
   outline: none;
   border-color: #4a90e2;
   box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.item-name.error {
+  border-color: #e74c3c;
+  background: #fff5f5;
+}
+
+.item-name.error:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
 }
 
 .item-quantity {

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ArrowLeft, Plus, FileText, Download, Trash2 } from 'lucide-react';
+import { ArrowLeft, Plus, Download, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Form.css';
 
@@ -10,6 +10,7 @@ function Pickup() {
   const [employeeTeam, setEmployeeTeam] = useState('');
   const [items, setItems] = useState([{ id: 1, name: '', quantity: 1 }]);
   const [showReceipt, setShowReceipt] = useState(true);
+  const [errors, setErrors] = useState({});
   const itemRefs = useRef([]);
 
   const addItem = () => {
@@ -46,15 +47,42 @@ function Pickup() {
     }
   };
 
-  const generateReceipt = () => {
-    setShowReceipt(true);
-    setTimeout(() => {
-      document.title = `Receipt ${receiptNumber || '___'} ${employeeName || '__________________'} ${employeeTeam || '__________________'}`;
-    }, 100);
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!receiptNumber.trim()) {
+      newErrors.receiptNumber = true;
+    }
+    if (!employeeName.trim()) {
+      newErrors.employeeName = true;
+    }
+    if (!employeeTeam.trim()) {
+      newErrors.employeeTeam = true;
+    }
+    
+    const hasEmptyItems = items.some(item => !item.name.trim());
+    if (hasEmptyItems) {
+      items.forEach((item, index) => {
+        if (!item.name.trim()) {
+          newErrors[`item-${item.id}`] = true;
+        }
+      });
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handlePrint = () => {
+    if (!validateForm()) {
+      return;
+    }
+    
+    const originalTitle = document.title;
+    document.title = `Revers ${receiptNumber || '___'} ${employeeName || '__________________'} ${employeeTeam || '__________________'}`;
     window.print();
+    document.title = originalTitle;
   };
 
   const today = new Date().toLocaleDateString('sr-RS');
@@ -79,8 +107,14 @@ function Pickup() {
                 <input 
                   type="number" 
                   value={receiptNumber} 
-                  onChange={(e) => setReceiptNumber(e.target.value)}
+                  onChange={(e) => {
+                    setReceiptNumber(e.target.value);
+                    if (errors.receiptNumber) {
+                      setErrors({...errors, receiptNumber: false});
+                    }
+                  }}
                   placeholder="Enter number"
+                  className={errors.receiptNumber ? 'error' : ''}
                 />
               </div>
               <div className="form-group">
@@ -88,8 +122,14 @@ function Pickup() {
                 <input 
                   type="text" 
                   value={employeeName} 
-                  onChange={(e) => setEmployeeName(e.target.value)}
+                  onChange={(e) => {
+                    setEmployeeName(e.target.value);
+                    if (errors.employeeName) {
+                      setErrors({...errors, employeeName: false});
+                    }
+                  }}
                   placeholder="Full name"
+                  className={errors.employeeName ? 'error' : ''}
                 />
               </div>
               <div className="form-group">
@@ -97,8 +137,14 @@ function Pickup() {
                 <input 
                   type="text" 
                   value={employeeTeam} 
-                  onChange={(e) => setEmployeeTeam(e.target.value)}
+                  onChange={(e) => {
+                    setEmployeeTeam(e.target.value);
+                    if (errors.employeeTeam) {
+                      setErrors({...errors, employeeTeam: false});
+                    }
+                  }}
                   placeholder="Team name"
+                  className={errors.employeeTeam ? 'error' : ''}
                 />
               </div>
             </div>
@@ -113,10 +159,17 @@ function Pickup() {
                       ref={el => itemRefs.current[index] = el}
                       type="text" 
                       value={item.name}
-                      onChange={(e) => updateItem(item.id, 'name', e.target.value)}
+                      onChange={(e) => {
+                        updateItem(item.id, 'name', e.target.value);
+                        if (errors[`item-${item.id}`]) {
+                          const newErrors = {...errors};
+                          delete newErrors[`item-${item.id}`];
+                          setErrors(newErrors);
+                        }
+                      }}
                       onKeyPress={(e) => handleKeyPress(e, index)}
                       placeholder="Equipment name"
-                      className="item-name"
+                      className={`item-name ${errors[`item-${item.id}`] ? 'error' : ''}`}
                     />
                     <input 
                       type="number" 
