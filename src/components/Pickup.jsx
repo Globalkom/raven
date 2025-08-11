@@ -22,7 +22,7 @@ function Pickup() {
       }
     }, 50);
   };
-
+/* test */
   const removeItem = (id) => {
     if (items.length > 1) {
       setItems(items.filter(item => item.id !== id));
