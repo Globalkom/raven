@@ -38,7 +38,7 @@ function Home() {
       </div>
       
       <footer className="home-footer">
-        <p> 2025 Globalkom/LimoLabs</p>
+        <p> Aug, 2025 | Globalkom/LimoLabs</p>
       </footer>
     </div>
   );

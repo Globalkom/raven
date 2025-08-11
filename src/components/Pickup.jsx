@@ -9,7 +9,7 @@ function Pickup() {
   const [employeeName, setEmployeeName] = useState('');
   const [employeeTeam, setEmployeeTeam] = useState('');
   const [items, setItems] = useState([{ id: 1, name: '', quantity: 1 }]);
-  const [showReceipt, setShowReceipt] = useState(false);
+  const [showReceipt, setShowReceipt] = useState(true);
   const itemRefs = useRef([]);
 
   const addItem = () => {
@@ -143,16 +143,10 @@ function Pickup() {
             </div>
 
             <div className="form-actions">
-              <button className="generate-btn compact" onClick={generateReceipt}>
-                <FileText size={18} />
-                Generate Receipt
+              <button className="print-btn compact" onClick={handlePrint}>
+                <Download size={18} />
+                Download PDF
               </button>
-              {showReceipt && (
-                <button className="print-btn compact" onClick={handlePrint}>
-                  <Download size={18} />
-                  PDF
-                </button>
-              )}
             </div>
           </div>
         </div>
@@ -218,7 +212,7 @@ function Pickup() {
                   </div>
                   <div className="signature">
                     <p>Robu primio/la</p>
-                    <p>{employeeName || '__________________'}</p>
+                    <p>{employeeName}</p>
                     <br />
                     <p>__________________</p>
                   </div>
