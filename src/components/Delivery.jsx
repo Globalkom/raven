@@ -215,7 +215,7 @@ function Delivery() {
                     <p>Robu primio/la</p>
                     <p>{employeeName}</p>
                     <br />
-                    <p>__________________</p>
+                    <p className='employee-signature'>__________________</p>
                   </div>
                 </div>
               </div>

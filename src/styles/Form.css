@@ -269,8 +269,9 @@ body{
 
 .receipt-output {
   background: #f8f8f8;
-  padding: 1rem;
+  /* padding: 1rem; */
   border-radius: 15px;
+  overflow: hidden;
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
   animation: fadeIn 0.5s ease-out;
 }
@@ -288,8 +289,8 @@ body{
   max-width: 100%;
   padding: 2rem;
   background: white;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  /* border: 1px solid #ddd; */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
   min-height: 600px;
 }
 
@@ -371,26 +372,32 @@ body{
 }
 
 .signature p {
-  margin: 0.4rem 0;
-  font-size: 16px;
+  /* margin: 0.4rem 0; */
+  /* font-size: 16px; */
 }
 
 .milos-signature {
   font-family: 'Indie Flower', cursive;
   font-size: 28px;
-  margin: 0.4rem 0;
+  color: #0077b6;
+  /* margin: 0.4rem 0; */
 }
 
 .misa-signature-container {
-  height: 50px;
+  /* height: 50px; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .misa-signature {
-  max-height: 45px;
-  width: auto;
+  /* max-height: 100px; */
+  margin-top: 4px;
+  width: 200px;
+}
+
+.employee-signature{
+  margin-top: 20px;
 }
 
 @media (max-width: 1024px) {
