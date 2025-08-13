@@ -10,9 +10,9 @@ function Home() {
     <div className="home-container">
       <div className="hero-section">
         <div className="logo-container">
-          <div className="logo-text">GLOBALKOM</div>
+          <div className="logo-text">GLOBALKOM RAVEN</div>
         </div>
-        <h1 className="main-title">Raven Receipt</h1>
+        <h4 className="main-title">Choose your desirable template</h4>
         {/* <p className="subtitle">Sistem za generisanje reversa za opremu</p> */}
         {/* <div className="version-badge">v2.0</div> */}
       </div>
@@ -23,7 +23,7 @@ function Home() {
           onClick={() => navigate('/pickup')}
         >
           <HomeIcon size={24} />
-          <span>Office PU</span>
+          <span>OFFICE</span>
           <p className="button-description">Equipment pickup from office</p>
         </button>
         
@@ -32,7 +32,7 @@ function Home() {
           onClick={() => navigate('/delivery')}
         >
           <Truck size={24} />
-          <span>Work from Home</span>
+          <span>HOME</span>
           <p className="button-description">Equipment shipped to home</p>
         </button>
       </div>
