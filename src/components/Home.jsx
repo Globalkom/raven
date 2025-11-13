@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Home as HomeIcon, Truck } from 'lucide-react';
+import { Home as HomeIcon, Truck, Building2 } from 'lucide-react';
 import '../styles/Home.css';
 
 function Home() {
@@ -34,6 +34,15 @@ function Home() {
           <Truck size={24} />
           <span>HOME</span>
           <p className="button-description">Equipment shipped to home</p>
+        </button>
+
+        <button 
+          className="action-button delivery-button"
+          onClick={() => navigate('/office')}
+        >
+          <Building2 size={24} />
+          <span>NOVI SAD</span>
+          <p className="button-description">Office Access Tags</p>
         </button>
       </div>
       

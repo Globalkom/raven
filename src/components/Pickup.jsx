@@ -249,6 +249,10 @@ function Pickup() {
                     })}
                   </tbody>
                 </table>
+{/* 
+                <div className="note">
+                
+                </div> */}
 
                 <div className="signature-blocks">
                   <div className="signature">

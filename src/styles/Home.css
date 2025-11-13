@@ -125,30 +125,24 @@
 .action-button:hover::before {
   opacity: 1;
 }
-
-.pickup-button {
+.delivery-button,
+.pickup-button,
+.office-button {
   background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
 }
 
-.pickup-button:hover {
+.delivery-button:hover,
+.pickup-button:hover,
+.office-button:hover {
   background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
 }
 
-.pickup-button svg {
-  color: #4a90e2;
-}
-
-.delivery-button {
-  background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
-}
-
-.delivery-button:hover {
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-}
-
-.delivery-button svg {
+.delivery-button svg,
+.pickup-button svg,
+.office-button svg {
   color: #2c5aa0;
 }
+
 
 .action-button span {
   font-size: 1.4rem;

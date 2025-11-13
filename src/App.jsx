@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home.jsx';
 import Delivery from './components/Delivery.jsx';
 import Pickup from './components/Pickup.jsx';
+import Office from './components/Office.jsx';
 import './styles/App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/delivery" element={<Delivery />} />
           <Route path="/pickup" element={<Pickup />} />
+          <Route path="/office" element={<Office />} />
         </Routes>
       </div>
     </Router>

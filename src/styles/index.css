@@ -23,3 +23,9 @@ code {
 #root {
   min-height: 100vh;
 }
+
+.note{
+ margin: 0px; 
+ text-align: justify;
+ font-size: 12px;
+}
