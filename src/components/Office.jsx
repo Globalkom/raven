@@ -208,6 +208,7 @@ function Pickup() {
           <div className="receipt-preview">
             <div className="receipt-output" id="receiptOutput">
               <div className="receipt-document">
+                {/* <img class="test-slika" src="https://www.outsourceaccelerator.com/wp-content/uploads/2023/11/67c39bc03538de9d11db596c274202fa_Globalkom-logo.png" /> */}
                 <div className="receipt-header">
                   <h2 className="receipt-title-left">REVERS BR. <u> NS {receiptNumber}</u></h2>
                   <p className="receipt-date-right">Datum {today} godine</p>
@@ -221,7 +222,7 @@ function Pickup() {
                     </tr>
                     <tr>
                       <td>primio/la na upotrebu za</td>
-                      <td>Svakodnevno korišćenje / upotrebu u kancelarijskom prostoru na adresi Branimira Ćosića 2, 21000 Novi Sad</td>
+                      <td>Svakodnevni pristup kancelarijskom prostoru na adresi Branimira Ćosića 2, 21000 Novi Sad.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -251,8 +252,11 @@ function Pickup() {
                 </table>
 
                 <div className="note">
-                <b> NAPOMENA: </b>
-                      <p> - Zaposleni se obavezuje da najkasnije u roku od 8 dana od dana promene mesta rada ili prestanka radnog odnosa vrati preuzetu opremu poslodavcu - privrednom društvu Globalkom DOO Beograd. </p>
+                <b> Zaposleni potvrđuje da je upoznat sa sledećim obavezama: </b>
+                    {/* <p> - Zaposleni se obavezuje da najkasnije u roku od 8 dana od dana promene mesta rada ili prestanka radnog odnosa vrati preuzetu opremu poslodavcu - privrednom društvu Globalkom DOO Beograd. </p> */}
+                    <p> - Pristupna kartica/tag predstavlja imovinu kompanije i mora se čuvati od oštećenja, gubitka i neovlašćene upotrebe. </p>
+                    <p> - U slučaju gubitka kartice/taga, zaposleni je dužan odmah obavestiti HR departman.  </p>
+                    <p> - Po prestanku radnog odnosa ili promeni ovlašćenja, zaposleni je dužan da najkasnije u roku od 8 dana vrati opremu kompaniji.</p>
                 </div>
 
                  <div className="signature-blocks">
