@@ -250,6 +250,16 @@ function Delivery() {
                   </tbody>
                 </table>
 
+                <div className="note">
+                  <b> Potpisivanjem ovog dokumenta zaposleni potvrđuje da je upoznat sa sledećim obavezama: </b>
+                  {/* <p> - Zaposleni se obavezuje da najkasnije u roku od 8 dana od dana promene mesta rada ili prestanka radnog odnosa vrati preuzetu opremu poslodavcu - privrednom društvu Globalkom DOO Beograd. </p> */}
+             
+                  <p> - Oprema za rad predstavlja imovinu kompanije i mora se čuvati od oštećenja, gubitka ili neovlašćene upotrebe </p>
+                  <p> - U slučaju oštećenja opreme, zaposleni je dužan odmah obavestiti IT podršku putem mejla itsupport@limolabs.com.  </p>
+                  <p> - Po prestanku radnog odnosa ili promeni ovlašćenja, zaposleni je dužan da najkasnije u roku od 8 dana vrati opremu kompaniji.</p>
+                </div>
+                
+
                 <div className="signature-blocks">
                   <div className="signature">
                     <p>Revers izdao</p>

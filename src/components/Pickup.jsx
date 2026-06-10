@@ -23,7 +23,7 @@ function Pickup() {
       }
     }, 50);
   };
-/* test */
+  /* test */
   const removeItem = (id) => {
     if (items.length > 1) {
       setItems(items.filter(item => item.id !== id));
@@ -31,7 +31,7 @@ function Pickup() {
   };
 
   const updateItem = (id, field, value) => {
-    setItems(items.map(item => 
+    setItems(items.map(item =>
       item.id === id ? { ...item, [field]: value } : item
     ));
   };
@@ -50,7 +50,7 @@ function Pickup() {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!receiptNumber.trim()) {
       newErrors.receiptNumber = true;
     }
@@ -60,7 +60,7 @@ function Pickup() {
     if (!employeeTeam.trim()) {
       newErrors.employeeTeam = true;
     }
-    
+
     const hasEmptyItems = items.some(item => !item.name.trim());
     if (hasEmptyItems) {
       items.forEach((item, index) => {
@@ -69,7 +69,7 @@ function Pickup() {
         }
       });
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -78,7 +78,7 @@ function Pickup() {
     if (!validateForm()) {
       return;
     }
-    
+
     const originalTitle = document.title;
     document.title = `Revers ${receiptNumber || '___'} ${employeeName || '__________________'} ${employeeTeam || '__________________'}`;
     window.print();
@@ -104,13 +104,13 @@ function Pickup() {
               <h3>Basic Information</h3>
               <div className="form-group">
                 <label>Receipt Number</label>
-                <input 
-                  type="number" 
-                  value={receiptNumber} 
+                <input
+                  type="number"
+                  value={receiptNumber}
                   onChange={(e) => {
                     setReceiptNumber(e.target.value);
                     if (errors.receiptNumber) {
-                      setErrors({...errors, receiptNumber: false});
+                      setErrors({ ...errors, receiptNumber: false });
                     }
                   }}
                   placeholder="Enter number"
@@ -119,13 +119,13 @@ function Pickup() {
               </div>
               <div className="form-group">
                 <label>Employee Name</label>
-                <input 
-                  type="text" 
-                  value={employeeName} 
+                <input
+                  type="text"
+                  value={employeeName}
                   onChange={(e) => {
                     setEmployeeName(e.target.value);
                     if (errors.employeeName) {
-                      setErrors({...errors, employeeName: false});
+                      setErrors({ ...errors, employeeName: false });
                     }
                   }}
                   placeholder="Full name"
@@ -134,13 +134,13 @@ function Pickup() {
               </div>
               <div className="form-group">
                 <label>Team</label>
-                <input 
-                  type="text" 
-                  value={employeeTeam} 
+                <input
+                  type="text"
+                  value={employeeTeam}
                   onChange={(e) => {
                     setEmployeeTeam(e.target.value);
                     if (errors.employeeTeam) {
-                      setErrors({...errors, employeeTeam: false});
+                      setErrors({ ...errors, employeeTeam: false });
                     }
                   }}
                   placeholder="Team name"
@@ -155,14 +155,14 @@ function Pickup() {
                 {items.map((item, index) => (
                   <div key={item.id} className="item-row compact">
                     <span className="item-number">{index + 1}.</span>
-                    <input 
+                    <input
                       ref={el => itemRefs.current[index] = el}
-                      type="text" 
+                      type="text"
                       value={item.name}
                       onChange={(e) => {
                         updateItem(item.id, 'name', e.target.value);
                         if (errors[`item-${item.id}`]) {
-                          const newErrors = {...errors};
+                          const newErrors = { ...errors };
                           delete newErrors[`item-${item.id}`];
                           setErrors(newErrors);
                         }
@@ -171,15 +171,15 @@ function Pickup() {
                       placeholder="Equipment name"
                       className={`item-name ${errors[`item-${item.id}`] ? 'error' : ''}`}
                     />
-                    <input 
-                      type="number" 
+                    <input
+                      type="number"
                       value={item.quantity}
                       onChange={(e) => updateItem(item.id, 'quantity', e.target.value)}
                       min="1"
                       className="item-quantity"
                     />
                     {items.length > 1 && (
-                      <button 
+                      <button
                         className="remove-item-btn"
                         onClick={() => removeItem(item.id)}
                       >
@@ -212,7 +212,7 @@ function Pickup() {
                   <h2 className="receipt-title-left">REVERS BR. <u>{receiptNumber || '___'}</u></h2>
                   <p className="receipt-date-right">Datum {today} godine</p>
                 </div>
-                
+
                 <table className="receipt-info">
                   <tbody>
                     <tr>
@@ -249,10 +249,15 @@ function Pickup() {
                     })}
                   </tbody>
                 </table>
-{/* 
+
                 <div className="note">
-                
-                </div> */}
+                  <b> Potpisivanjem ovog dokumenta zaposleni potvrđuje da je upoznat sa sledećim obavezama: </b>
+                  {/* <p> - Zaposleni se obavezuje da najkasnije u roku od 8 dana od dana promene mesta rada ili prestanka radnog odnosa vrati preuzetu opremu poslodavcu - privrednom društvu Globalkom DOO Beograd. </p> */}
+             
+                  <p> - Oprema za rad predstavlja imovinu kompanije i mora se čuvati od oštećenja, gubitka ili neovlašćene upotrebe </p>
+                  <p> - U slučaju oštećenja opreme, zaposleni je dužan odmah obavestiti IT podršku putem mejla itsupport@limolabs.com.  </p>
+                  <p> - Po prestanku radnog odnosa ili promeni ovlašćenja, zaposleni je dužan da najkasnije u roku od 8 dana vrati opremu kompaniji.</p>
+                </div>
 
                 <div className="signature-blocks">
                   <div className="signature">
